@@ -1,47 +1,41 @@
-const people = JSON.parse(localStorage.getItem("selectedPeople")) || [];
+Update the existing repository SecretSantaGame.
 
-function getRandomPerson() {
-  const unusedPeople = data.filter(person => !people.includes(person.id));
-  if (unusedPeople.length === 0) {
-    document.getElementById("spinButton").disabled = true;
-    alert("Все люди были выбраны. Перезагрузка для нового списка!");
-    return null;
-  }
-  const randomIndex = Math.floor(Math.random() * unusedPeople.length);
-  const selectedPerson = unusedPeople.splice(randomIndex, 1)[0];
-  people.push(selectedPerson.id);
+Edit the file data.js.
 
-  localStorage.setItem("selectedPeople", JSON.stringify(people));
-  return selectedPerson;
-}
+Replace the people array with the following participants.
+Each participant must have:
+- id (unique number)
+- name (string)
+- wishes (empty string)
 
-document.getElementById("spinButton")?.addEventListener("click", () => {
-  const person = getRandomPerson();
-  if (person) {
-    document.getElementById("personName").textContent = person.name;
-    document.getElementById("wishes").textContent = person.wishes;
-  }
-});
+Participants (keep the exact names):
 
-// Food page
-const form = document.getElementById("dishesForm");
-const saveButton = document.getElementById("saveDishes");
+1. Евгений Небожин
+2. Влад
+3. Влад (Долгов)
+4. Рома
+5. Рома (Пичугин)
+6. Алина
+7. Даня
+8. Женя (Архипов)
+9. Даня (маленький)
+10. Саша (парень Дани)
 
-const dishes = JSON.parse(localStorage.getItem("dishes")) || {};
+Use this exact structure:
 
-data.forEach(person => {
-  const listItem = document.createElement("li");
-  const input = document.createElement("input");
-  input.placeholder = `Введите блюдо для ${person.name}`;
-  input.value = dishes[person.id] || "";
-  input.addEventListener("input", () => {
-    dishes[person.id] = input.value;
-  });
-  listItem.appendChild(input);
-  form.appendChild(listItem);
-});
+const people = [
+  { id: 1, name: "Евгений Небожин", wishes: "" },
+  { id: 2, name: "Влад", wishes: "" },
+  { id: 3, name: "Влад (Долгов)", wishes: "" },
+  { id: 4, name: "Рома", wishes: "" },
+  { id: 5, name: "Рома (Пичугин)", wishes: "" },
+  { id: 6, name: "Алина", wishes: "" },
+  { id: 7, name: "Даня", wishes: "" },
+  { id: 8, name: "Женя (Архипов)", wishes: "" },
+  { id: 9, name: "Даня (маленький)", wishes: "" },
+  { id: 10, name: "Саша (парень Дани)", wishes: "" }
+];
 
-saveButton?.addEventListener("click", () => {
-  localStorage.setItem("dishes", JSON.stringify(dishes));
-  alert("Блюда сохранены!");
-});
+After updating data.js:
+- Save the file
+- Commit the changes to the repository
