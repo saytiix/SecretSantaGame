@@ -18,3 +18,4 @@ function spin() {
   document.getElementById("result").textContent =
     "Тебе выпал: " + result;
 }
+<script src="script.js"></script>
